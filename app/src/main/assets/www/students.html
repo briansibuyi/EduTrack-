@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>School Console</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/logo-nav.css" rel="stylesheet">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-messaging.js"></script>
+
+  <!-- Leave out Storage -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-storage.js"></script> -->
+
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDgIXqS6oKO1jhEooK8aleq8WvYTjKCopY",
+      authDomain: "edutrack-2d87d.firebaseapp.com",
+      databaseURL: "https://edutrack-2d87d.firebaseio.com",
+      projectId: "edutrack-2d87d",
+      storageBucket: "",
+      messagingSenderId: "573160075582"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          School<b>Name</b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="main.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="report.html">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="students.html">Students</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signout.html">signOut</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <style>
+        .invoice-box {
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td{
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        }
+
+        .rtl table {
+            text-align: right;
+        }
+
+        .rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+        </style>
+
+</head>
+
+<body>
+    <div class=" container invoice-box">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="assets/img/school_logo.png" style="width:100%; max-width:300px;">
+                            </td>
+
+                            <td>
+                                Tel: 011 123 12345<br>
+                                Fax: 011 123 12345<br>
+                                schoolname@school.gov.za
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+
+
+            </table>
+
+
+    </div>
+
+
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+
+            <br>
+
+                  <H3>Available Student:</h3>
+              </tr>
+
+              <div class="alert alert-success">
+                <strong><span id="fname"></span></strong>
+                <br><span id="userID"></span>
+              </div>
+
+            </div>
+
+            <!-- <div class="col-md-12">
+              <tr class="item">
+                    <td>Name:</td>
+                  <td ><span id="fname"></span></td>
+              </tr>
+
+            </div>
+            <div class="col-md-12">
+            <tr >
+                <td>Id No:</td>
+              <td><a href="report.php?id="><span id="id"></span></a></td>
+
+            </tr>
+          </div> -->
+
+      </div>
+</div>
+<script type="text/javascript">
+
+// Personal detailssecond
+var userRef = firebase.database().ref('students');
+var userNode = userRef.child('9509106101083');
+var userNode2 = userNode.child('Student_Details');
+
+userRef.once("value", function(snapshot) {
+      if(snapshot.exists()){
+
+        $("#fname").append(snapshot.child("Full_Name").val()).append("<br>");
+
+        snapshot.forEach(function(childSnapshot) {
+
+          if(snapshot.exists()){
+                 document.getElementById("fname").innerHTML = snapshot.child("Full_Name").val();
+                 document.getElementById("id").innerHTML= snapshot.child("ID_Number").val();
+               }
+          console.log(childSnapshot.key);
+          $("#userID").append(childSnapshot.key).append("<br>");
+          //  $("#info").append(childSnapshot.key).append("<br>");
+        });
+      }
+    });
+
+// userNode2.once("value", function(snapshot) {
+//       if(snapshot.exists()){
+//        document.getElementById("fname").innerHTML = snapshot.child("Full_Name").val();
+//        document.getElementById("id").innerHTML= snapshot.child("ID_Number").val();
+//      }
+//  });
+
+</script>
+
+</body>
+</html>

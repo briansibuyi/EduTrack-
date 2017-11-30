@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>School Console</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/logo-nav.css" rel="stylesheet">
+
+
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-database.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-messaging.js"></script>
+
+      <!-- Leave out Storage -->
+      <!-- <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-storage.js"></script> -->
+
+      <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyDgIXqS6oKO1jhEooK8aleq8WvYTjKCopY",
+          authDomain: "edutrack-2d87d.firebaseapp.com",
+          databaseURL: "https://edutrack-2d87d.firebaseio.com",
+          projectId: "edutrack-2d87d",
+          storageBucket: "",
+          messagingSenderId: "573160075582"
+        };
+        firebase.initializeApp(config);
+      </script>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          School<b>Name</b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="main.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="report.html">Reports</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="students.html">Students</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="signout.html">signOut</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-signin" id="myform">
+            <h2 class="form-signin-heading">Academic Records</h2>
+            <label for="inputHL" class="sr-only">Home Language</label>
+            <input type="text" id="inputHL" class="form-control" placeholder="Home Language" required autofocus>
+            <br>
+
+            <label for="inputFAL" class="sr-only">First Additional Language</label>
+            <input type="text" id="inputFAL" class="form-control" placeholder="First Additional Language" required autofocus>
+            <br>
+
+            <label for="inputMaths" class="sr-only">Mathametics</label>
+            <input type="text" id="inputMaths" class="form-control" placeholder="Mathametics" required autofocus>
+            <br>
+
+            <label for="inputPhysics" class="sr-only">Physical Sciences</label>
+            <input type="text" id="inputPhysics" class="form-control" placeholder="Physical Sciences" required autofocus>
+            <br>
+
+            <label for="inputLife" class="sr-only">Life Sciences</label>
+            <input type="text" id="inputLife" class="form-control" placeholder="Life Sciences" required autofocus>
+            <br>
+
+            <label for="inputGeo" class="sr-only">Geography</label>
+            <input type="text" id="inputGeo" class="form-control" placeholder="Geography" required>
+            <br>
+          </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-signin" id="myform">
+            <h2 class="form-signin-heading">Marks</h2>
+            <label for="inputHL" class="sr-only">Mark 1</label>
+            <input type="text" id="inputMark1" class="form-control" placeholder="Mark" required autofocus>
+            <br>
+
+            <label for="inputFAL" class="sr-only">Mark 2</label>
+            <input type="text" id="inputMark2" class="form-control" placeholder="Mark" required autofocus>
+            <br>
+
+            <label for="inputMaths" class="sr-only">Mark 3</label>
+            <input type="text" id="inputMark3" class="form-control" placeholder="Mark"required autofocus>
+            <br>
+
+            <label for="inputPhysics" class="sr-only">Mark 4</label>
+            <input type="text" id="inputMark4" class="form-control" placeholder="Mark" required autofocus>
+            <br>
+
+            <label for="inputLife" class="sr-only">Mark 5</label>
+            <input type="text" id="inputMark5" class="form-control" placeholder="Mark" required autofocus>
+            <br>
+
+            <label for="inputGeo" class="sr-only">Mark 6</label>
+            <input type="text" id="inputMark6" class="form-control" placeholder="Mark" required>
+            <br>
+          </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-signin" id="myform">
+            <h2 class="form-signin-heading">Personal Details</h2>
+            <label for="inputHL" class="sr-only">Full Names</label>
+            <input type="text" id="inputFname" class="form-control" placeholder="Full Names" required autofocus>
+            <br>
+
+            <label for="inputID" class="sr-only">ID Number</label>
+            <input type="text" id="inputID" class="form-control" placeholder="ID Number" required autofocus>
+            <br>
+
+            <label for="inputEmail" class="sr-only">Date of Birth</label>
+            <input type="date" id="inputDOB" class="form-control" placeholder="Date of Birth" required autofocus>
+            <br>
+
+            <label for="inputEmail" class="sr-only">Distric Region</label>
+            <input type="text" id="inputDistrict" class="form-control" placeholder="Distric Region" required autofocus>
+            <br>
+
+            <label for="inputEmail" class="sr-only">Address</label>
+            <input type="text" id="inputAddress" class="form-control" placeholder="Home Address" required autofocus>
+            <br>
+
+            <label for="inputSub" class="sr-only">Town</label>
+            <input type="text" id="inputTown" class="form-control" placeholder="Town" required>
+            <br>
+          </div>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" onclick="save_user()" type="submit">Update</button>
+    </div>
+  </div>
+    <!-- /.container -->
+
+    <script type="text/javascript">
+      // Save data to firebase
+      function save_user() {
+
+        var Ref = firebase.database().ref("students/").child(document.getElementById('inputID').value);
+
+        //Personal Details
+       var fname = document.getElementById('inputFname').value;
+        var id = document.getElementById('inputID').value;
+        var dob = document.getElementById('inputDOB').value;
+        var district = document.getElementById('inputDistrict').value;
+        var address = document.getElementById('inputAddress').value;
+        var town = document.getElementById('inputTown').value;
+
+        //Academic Details
+        var sub1 = document.getElementById('inputHL').value;
+        var sub2 = document.getElementById('inputFAL').value;
+        var sub3 = document.getElementById('inputPhysics').value;
+        var sub4 = document.getElementById('inputLife').value;
+        var sub5 = document.getElementById('inputGeo').value;
+        var sub6 = document.getElementById('inputMaths').value;
+
+        //Academic Marks
+        var mark1 = document.getElementById('inputMark1').value;
+        var mark2 = document.getElementById('inputMark2').value;
+        var mark3 = document.getElementById('inputMark3').value;
+        var mark4 = document.getElementById('inputMark4').value;
+        var mark5 = document.getElementById('inputMark5').value;
+        var mark6 = document.getElementById('inputMark6').value;
+
+Ref.set ({
+
+ Academic_Results: {
+    Subject_One:{
+      sub1,
+     Marks: mark1
+   },
+    Subject_Two:{
+      sub2,
+     Marks: mark2
+   },
+    Subject_Three:{
+      sub3,
+     Marks: mark3
+   },
+    Subject_Four:{
+      sub4,
+     Marks: mark4
+   },
+    Subject_Five:{
+      sub5,
+     Marks: mark5
+   },
+    Subject_Six:{
+      sub6,
+     Marks: mark6
+    }
+ },
+
+ Student_Details: {
+   Full_Name:fname,
+   ID_Number:id,
+   User_DOB:dob,
+   District:district,
+   User_Address:address,
+   User_Town:town
+ }
+});
+    alert("Student Details Submitted!!");
+  //  reload_page();
+        }
+
+        function reload_page() {
+            window.location.reload();
+        }
+    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

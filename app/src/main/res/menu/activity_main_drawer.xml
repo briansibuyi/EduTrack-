@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/subjectMarks"
+            android:icon="@drawable/ic_timeline_black_24dp"
+            android:title="Subject Marks" />
+
+        <item
+            android:id="@+id/average"
+            android:icon="@drawable/ic_timeline_black_24dp"
+            android:title="Average" />
+
+        <item
+            android:id="@+id/personal_info"
+            android:icon="@drawable/ic_assignment_ind_black_24dp"
+            android:title="Personal Info" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/feedback"
+                android:icon="@drawable/ic_feedback_black_24dp"
+                android:title="Feedback" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/email"
+                android:icon="@drawable/ic_email_black_24dp"
+                android:title="Email us" />
+        </menu>
+    </item>
+
+</menu>

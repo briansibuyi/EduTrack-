@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>School Console</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/logo-nav.css" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-messaging.js"></script>
+
+  <!-- Leave out Storage -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-storage.js"></script> -->
+
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDgIXqS6oKO1jhEooK8aleq8WvYTjKCopY",
+      authDomain: "edutrack-2d87d.firebaseapp.com",
+      databaseURL: "https://edutrack-2d87d.firebaseio.com",
+      projectId: "edutrack-2d87d",
+      storageBucket: "",
+      messagingSenderId: "573160075582"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  </head>
+
+  <body>
+
+    <!-- Page Content -->
+  <div class="container">
+    <div class="form-signin" id="myform">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" onclick="handleSignIn()" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" onclick="handleSignUp()" type="submit">Register</button>
+      </div>
+  </div>
+    <!-- /.container -->
+
+    <script type="text/javascript">
+
+    firebase.auth().signOut();
+
+    function handleSignUp() {
+       var email = document.getElementById('inputEmail').value;
+       var password = document.getElementById('inputPassword').value;
+       if (email.length < 4) {
+         alert('Please enter an email address.');
+         return;
+       }
+       if (password.length < 4) {
+         alert('Please enter a password.');
+         return;
+       }
+       // Sign in with email and pass.
+       // [START createwithemail]
+       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+         // Handle Errors here.
+         var errorCode = error.code;
+         var errorMessage = error.message;
+         // [START_EXCLUDE]
+         if (errorCode == 'auth/weak-password') {
+           alert('The password is too weak.');
+         } else {
+           alert(errorMessage);
+         }
+         console.log(error);
+
+         // [END_EXCLUDE]
+       });
+   // [END createwithemail]
+ }
+
+   function handleSignIn() {
+
+      if (firebase.auth().currentUser) {
+        // [START signout]
+        firebase.auth().signOut();
+        // [END signout]
+      } else {
+        var email = document.getElementById('inputEmail').value;
+        var password = document.getElementById('inputPassword').value;
+        if (email.length < 4) {
+          alert('Please enter an email address.');
+          return;
+        }
+        if (password.length < 4) {
+          alert('Please enter a password.');
+          return;
+        }
+        // Sign in with email and pass.
+        // [START authwithemail]
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+          // [END_EXCLUDE]
+        });
+        // [END authwithemail]
+      }
+    }
+
+    //Handle Account Status
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        window.location = 'main.html'; //After successful login, user will be redirected to home.html
+      }
+    });
+    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

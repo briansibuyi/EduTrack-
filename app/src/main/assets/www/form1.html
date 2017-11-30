@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script src="assets/vendor/jquery/jquery.js"></script>
+		<script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+
+	</head>
+	<body>
+
+		<div class="container">
+					<article class="row">
+						<section class="col-lg-8">
+							<div class="page-header">
+								<h1>Register</h1>
+
+							</div>
+							<!--displaying--->
+							<?php echo $match; ?>
+
+							<form class="form-horizontal" action="registration.php" method="post" role="form">
+								<div class="form-group">
+								<label for="name" class="control-label col-sm-3">Full Name *</label>
+								<div class="col-sm-8">
+									<input type="text" id="name" class="form-control" name="name" placeholder="Insert your Full Name"  required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="control-label col-sm-3">Last Name *</label>
+								<div class="col-sm-8">
+									<input type="text" id="email" class="form-control"  name="email" placeholder="Insert your Last Name"  required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="subject" class="control-label col-sm-3">Email *</label>
+								<div class="col-sm-8">
+									<input type="text" id="subject" class="form-control" name="subject" placeholder="Insert your Email"  required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="password" class="control-label col-sm-3">Password *</label>
+								<div class="col-sm-8">
+									<input type="password" id="password" class="form-control" name="password" placeholder="Insert your password"  required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="confirm-password" class="control-label col-sm-3">Confirm Password *</label>
+								<div class="col-sm-8">
+									<input type="password" id="confirm-Password" class="form-control"  name="confirm-password" placeholder="Confirm your password"  required>
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label for="gender" class="control-label col-sm-3">Gender *</label>
+								<div class="col-sm-3">
+									<select class="form-control" name="gender" id="gender" required>
+										<option value="">Select gender</option>
+										<option value="male">Male</option>
+										<option value="female">Female</option>
+
+									</select>
+									</div>
+
+									<label for="marital_status" class="control-label col-sm-2">marital status </label>
+									<div class="col-sm-3">
+										<select class="form-control" name="marital_status"  id="marital_status" required>
+											<option value="">Select status</option>
+											<option value="married">Married</option>
+											<option value="single">Single</option>
+											<option value="devorced">Devorced</option>
+											<option value="other">Other</option>
+										</select>
+										</div>
+								</div>
+
+
+							<div class="form-group">
+								<label for="Phone" class="control-label col-sm-3">Phone *</label>
+								<div class="col-sm-8">
+									<input type="text" id="Phone" class="form-control" name="Phone" placeholder="Insert your Phone"  required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="degnation" class="control-label col-sm-3">Designation *</label>
+								<div class="col-sm-8">
+									<input type="text" id="degnation" class="form-control" name="degnation" placeholder="Insert your Designation"  required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="website" class="control-label col-sm-3">Website *</label>
+								<div class="col-sm-8">
+									<input type="text" id="website" class="form-control" name="website" placeholder="Insert your Website"  required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="address" class="control-label col-sm-3">Address *</label>
+								<div class="col-sm-8">
+									<textarea class="form-control" rows="3" name="address" placeholder="Insert your address"  required></textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="about" class="control-label col-sm-3">About you *</label>
+								<div class="col-sm-8">
+									<textarea class="form-control" rows="6" name="about" placeholder="Insert your about"  required></textarea>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label col-sm-3"></label>
+								<div class="col-sm-8">
+									<input type="submit" value="Register yourself" name="submit_contact" class="btn btn-block btn-danger" id="subject" >
+								</div>
+							</div>
+
+
+
+							</form>
+						</section>
+
+						<?php include 'includes/sidebar.php';?>
+						</article>
+					</div>
+	</body>
+</html>
